@@ -26,7 +26,7 @@ const recipeQuery = `*[_type == "recipe" && slug.current == $slug][0]{
   likes
 }`;
 
-export default function oneRecipe({ data, preview }) {
+export default function OneRecipe({ data, preview }) {
   const router = useRouter();
 
   if (router.isFallback) {
