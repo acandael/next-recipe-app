@@ -29,10 +29,6 @@ const recipeQuery = `*[_type == "recipe" && slug.current == $slug][0]{
 export default function OneRecipe({ data, preview }) {
   const router = useRouter();
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-
   if (!data) return <div>Loading...</div>;
 
   const { data: recipe } = usePreviewSubscription(recipeQuery, {
