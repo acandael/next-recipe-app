@@ -55,7 +55,10 @@ export default function OneRecipe({ data, preview }) {
         {likes} ❤️
       </button>
       <main className="content">
-        <img src={urlFor(data.recipe?.mainImage).url()} alt={recipe.name} />
+        <img
+          src={urlFor(data.recipe?.mainImage).url()}
+          alt={data.recipe.name}
+        />
         <div className="breakdown">
           <ul className="ingredients">
             {data.recipe?.ingredient.map((ingredient) => (
@@ -67,7 +70,10 @@ export default function OneRecipe({ data, preview }) {
               </li>
             ))}
           </ul>
-          <PortableText value={recipe?.instructions} className="instructions" />
+          <PortableText
+            value={data?.recipe?.instructions}
+            className="instructions"
+          />
         </div>
       </main>
     </article>
