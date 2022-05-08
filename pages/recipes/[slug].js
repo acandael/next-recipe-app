@@ -56,7 +56,7 @@ export default function OneRecipe({ data, preview }) {
       </button>
       <main className="content">
         <img
-          src={urlFor(data?.recipe?.mainImage).url()}
+          src={data?.recipe?.mainImage && urlFor(data?.recipe?.mainImage).url()}
           alt={data?.recipe?.name}
         />
         <div className="breakdown">
