@@ -40,28 +40,28 @@ export default function OneRecipe({ data, preview }) {
   const addLike = async () => {
     const res = await fetch('/api/handle-like', {
       method: 'POST',
-      body: JSON.stringify({ _id: data.recipe._id }),
+      body: JSON.stringify({ _id: data?.recipe?._id }),
     }).catch((error) => console.log(error));
 
     const data = await res.json();
 
-    setLikes(data.likes);
+    setLikes(data?.likes);
   };
 
   return (
     <article className="recipe">
-      <h1>{data.recipe.name}</h1>
+      <h1>{data?.recipe?.name}</h1>
       <button className="like-button" onClick={addLike}>
         {likes} ❤️
       </button>
       <main className="content">
         <img
-          src={urlFor(data.recipe?.mainImage).url()}
-          alt={data.recipe.name}
+          src={urlFor(data?.recipe?.mainImage).url()}
+          alt={data?.recipe?.name}
         />
         <div className="breakdown">
           <ul className="ingredients">
-            {data.recipe?.ingredient.map((ingredient) => (
+            {data?.recipe?.ingredient.map((ingredient) => (
               <li key={ingredient._key} className="ingredient">
                 {ingredient?.wholeNumber}
                 {ingredient?.fraction} {ingredient?.unit}
